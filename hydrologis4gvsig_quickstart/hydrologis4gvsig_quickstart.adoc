@@ -1,0 +1,200 @@
+= JGrasstools for gvSIG plugins quickstart guide
+for Version 0.2.0 and HortonMachine 0.8.2
+:author: HydroloGIS S.r.l.
+:date: 2017-03-02
+:version: 0.1.0
+:gvsig_version: 2.3.1
+:jgt_version: 0.8.1
+:doctype: article
+:encoding: utf-8
+:lang: en
+:toc: left
+:numbered:
+:icons: font
+
+
+image::images/04_splash_jgt.png[]
+
+
+
+This manual covers version {version} of the plugins, that are aligned with gvSIG {gvsig_version} and HortonMachine {jgt_version}.
+
+<<<<
+
+== Introduction
+
+The HortonMachine for gvSIG package contains a set of plugins for gvSIG that supply the following functionalities:
+
+* <<spatialtoolbox,the HortonMachine Spatial Toolbox>>
+* <<epanet,the Epanet Plugins>>
+* <<geopaparazzi,the Geopaparazzi Plugins>>
+* a set of <<toolsutilities,tools and utilities>> we found to be usefull in our everyday life
+
+== Installation
+
+The plugins are supplied as a gvSIG package (**gvspks**) and can be downloaded https://we.tl/ROxgEc267P[here].
+
+One downloaded, fire up gvSIG, enter the **Addons manager**, which can be found in the **Tools** menu, and choose the _Installation from file_ option. Browse for the downloaded installation package and you should end up with something similar to <<addons_jgt>>.
+
+[[addons_jgt, Figure 1]]
+.The addons manager wizard.
+image::images/01_addons_manager.png[]
+
+By pushing next you will be taken to the dialog that lists all installed and available plugins. Look for the plugins that start with **org.jgrasstools.gvsig** and select the latest available version (see <<addons_jgt_selected>>)
+
+[[addons_jgt_selected, Figure 2]]
+.The packages to install.
+image::images/02_addons_manager.png[]
+
+The wizard will list teh plugins to install and prompt the user if he wants to continue. After that the installation will occurr and after it the user is prompted to restart gvSIG.
+
+If everything went well, the splash screen should look like:
+
+.The splash screen containing the HortonMachine icon.
+image::images/04_splash_jgt.png[]
+
+And gvSIG should present a new menu entry named **JGTools**:
+
+.The JGTools menu.
+image::images/05_jgt_menu.png[]
+
+anchor:spatialtoolbox[]
+
+== The HortonMachine Spatial Toolbox
+
+The spatial toolbox is a simple user interface to access all the modules contained in the HortonMachine library.
+
+image::images/toolbox.png[]
+
+It is beyond this documentation to explain the toolbox. Have a look at this https://www.slideshare.net/moovida/new-tools-for-lidar-forestry-river-management-and-hydrogeomorphology-in-gvsig[presentation about the LiDAR and forestry related modules]. They also introduce the spatial toolbox.
+
+anchor:epanet[]
+
+== The Epanet Plugins
+
+There is already some documentation about this plugin available. Please have a look at:
+
+* https://www.slideshare.net/silli/epanet-in-gvsig[this presentation] given at the international gvSIG conference in 2015
+* https://www.youtube.com/watch?v=NkMEqKKOlhA[this video] about data preparation in gvSIG
+* https://www.youtube.com/watch?v=mjic69a-ArI[this video] about running an Epanet simulation
+
+anchor:geopaparazzi[]
+
+== The Geopaparazzi Plugins
+
+=== Import a Geopaprazzi survey
+
+gvSIG now has direct Geopaparazzi database support. That means that as you add any WMS, shapefile or tiff layer, now also an option for Geopaparazzi appears.
+
+image::images/geopaparazzi_01.png[]
+
+Once you select the database file, some information about the database will appear, as well as the layers it will create on loading:
+
+image::images/geopaparazzi_02.png[]
+
+You have the option to import it to temporary layer, but also to create shapefiles from the database.  
+The second option gives more features and is the suggested way to go.  
+
+Once imported, the layers will be generated with their own default style and labeling:
+
+image::images/geopaparazzi_03.png[]
+
+The media layer can now be queried with an own tool:
+
+image::images/geopaparazzi_04.png[]
+
+So if you select one or more images, they will be opened:
+
+image::images/geopaparazzi_05b.png[]
+
+=== Prepare background data for geopaparazzi
+
+gvSIG now also has the tool to create a tileset (for Geopaparazzi basemaps) from the current view:
+
+image::images/geopaparazzi_06.png[]
+
+One just needs to define the zoomlevels and the database name and output folder and run the tool.
+
+anchor:toolsutilities[]
+
+== Tools & Utilities
+
+The tools added by the plugins are the following:
+
+image::images/tools.png[]
+
+=== The raster styler
+
+Right now, when one defines a colortable for a map, he gets 255 color rules.  
+One good example is the https://en.wikipedia.org/wiki/Aspect_%28geography%29[map of aspect]. Such a map, that ranges between 0 and 360 degrees, is usually coloured from white to black between 0 and 180, and from black to white between 180 and 360. So all you need would be 3 rules, not 255 which make everything unreadable (apart of being wrong):  
+
+image::images/raster_styler_02.png[]
+
+You can access the raster styler also from the context menu obtained by right-clicking on a raster layer:
+
+image::images/raster_styler_01.png[]
+
+Just select the right colortable, set a bit of transparency and define the novalue (if necessary). Also set the number format pattern in the legend and push apply. That is it:
+
+image::images/raster_styler_03.png[]
+
+And if we add a nice elevation style to the DTM, that will look even nicer:
+
+image::images/raster_styler_04.png[]
+
+Some maps contain categories. An example is the map of flowdirection, which contains numbers between 1 and 9, but really contains the direction in which the water flows. In that case it is possible to add the category as a label in the legend:
+
+image::images/raster_styler_05.png[]
+
+=== The Position Info Tool
+
+This tools allows the user to view the clicked coordinates and see them in a different projection and also copies them into the clipboard:
+
+image::images/infotool.png[]
+
+=== WKT Geometry Tool
+
+The Well Known Text toolbox it is a very simple tool, but we find it very useful:  
+
+image::images/wkt_geom_tool_01.png[]
+
+With it you can select a geometry in the layer and extract the WKT representation of the geometry.  
+
+The same way, in the lower box, you can write/paste some WKT geometry and it will be inserted as new feature in the currently selected layer, if it is of the same geometry type. 
+
+This makes it very easy, for example, to insert points in a layer.
+
+=== The Projection tool
+
+This simple tool allows the user to set the **prj** file for a file based layer.
+
+image::images/prj_tool.png[]
+
+One can select the layer and a projection. The projection can be customized in the textarea (maybe adding some missing Bursa Wolf Parameters).
+
+Once apply is pushed this tool will do nothing more than create the prj file for the layer's source.
+
+=== The Feature browser
+
+The feature browser is a simple yet very usefull tool for the cases in which you need to control manually a whole set of data.
+
+The tool puts the features in a list and allows the user to browse them back and forth. This assures that no feature has been left out.
+
+Once the layer has been selected in the combobox, the first feature is selected and zoomed to:
+
+image::images/featurebrowser_01.png[]
+
+By using the navigation buttons it is possible to go to the next feature and check its information:
+
+image::images/featurebrowser_02.png[]
+
+== Final remarks
+
+These tools are brought to you by http://www.hydrologis.com[HydroloGIS S.r.l.] and have been developed throughout the years by various research teams, the most important being the teams of:
+
+* Professor http://abouthydrology.blogspot.it/[Rigon Riccardo] of the University of Trento, Faculty of Engineering
+* Professor https://www.unibz.it/it/faculties/sciencetechnology/academic-staff/person/21255-giustino-tonon[Giustino Tonon] of the Free University of Bolzano, Faculty of Science and Technology
+
+The source code is available at the project's https://github.com/moovida/hydrologis4gvsig[github page]
+
+If you have questions, depending on the type, please refer to the gvSIG https://listserv.gva.es/cgi-bin/mailman/listinfo/gvsig_internacional[users] or http://joinup.ec.europa.eu/mailman/listinfo/gvsig-desktop-devel[developers] list.
