@@ -2,9 +2,9 @@
 for Version 0.2.0 and HortonMachine 0.8.2
 :author: HydroloGIS S.r.l.
 :date: 2017-03-02
-:version: 0.1.0
-:gvsig_version: 2.3.1
-:jgt_version: 0.8.1
+:version: 0.2.0
+:gvsig_version: 2.4.0
+:hm_version: 0.9.0
 :doctype: article
 :encoding: utf-8
 :lang: en
@@ -13,11 +13,11 @@ for Version 0.2.0 and HortonMachine 0.8.2
 :icons: font
 
 
-image::images/04_splash_jgt.png[]
+image::images/04_splash_hm.png[]
 
 
 
-This manual covers version {version} of the plugins, that are aligned with gvSIG {gvsig_version} and HortonMachine {jgt_version}.
+This manual covers version {version} of the plugins, that are aligned with gvSIG {gvsig_version} and HortonMachine {hm_version}.
 
 <<<<
 
@@ -26,37 +26,39 @@ This manual covers version {version} of the plugins, that are aligned with gvSIG
 The HortonMachine for gvSIG package contains a set of plugins for gvSIG that supply the following functionalities:
 
 * <<spatialtoolbox,the HortonMachine Spatial Toolbox>>
+* <<mapcalc,the Raster Mapcalculator>>
 * <<epanet,the Epanet Plugins>>
 * <<geopaparazzi,the Geopaparazzi Plugins>>
 * a set of <<toolsutilities,tools and utilities>> we found to be usefull in our everyday life
+* <<mapcontextmenu, some tools hidden in the context menu>>
 
 == Installation
 
-The plugins are supplied as a gvSIG package (**gvspks**) and can be downloaded https://we.tl/ROxgEc267P[here].
+The plugins are supplied as a gvSIG package (**gvspks**) and can be downloaded from the https://github.com/TheHortonMachine/hydrologis4gvsig/releases[releases page].
 
-One downloaded, fire up gvSIG, enter the **Addons manager**, which can be found in the **Tools** menu, and choose the _Installation from file_ option. Browse for the downloaded installation package and you should end up with something similar to <<addons_jgt>>.
+Once downloaded, fire up gvSIG, enter the **Addons manager**, which can be found in the **Tools** menu, and choose the _Installation from file_ option. Browse for the downloaded installation package and you should end up with something similar to <<addons_hm>>.
 
-[[addons_jgt, Figure 1]]
+[[addons_hm, Figure 1]]
 .The addons manager wizard.
 image::images/01_addons_manager.png[]
 
-By pushing next you will be taken to the dialog that lists all installed and available plugins. Look for the plugins that start with **org.jgrasstools.gvsig** and select the latest available version (see <<addons_jgt_selected>>)
+By pushing next you will be taken to the dialog that lists all installed and available plugins. Look for the plugins that start with **org.hortonmachine.gvsig** and select the latest available version (see <<addons_hm_selected>>)
 
-[[addons_jgt_selected, Figure 2]]
+[[addons_hm_selected, Figure 2]]
 .The packages to install.
 image::images/02_addons_manager.png[]
 
-The wizard will list teh plugins to install and prompt the user if he wants to continue. After that the installation will occurr and after it the user is prompted to restart gvSIG.
+The wizard will list the plugins to install and prompt the user if he wants to continue. After that the installation will occurr and after it the user is prompted to restart gvSIG.
 
 If everything went well, the splash screen should look like:
 
 .The splash screen containing the HortonMachine icon.
-image::images/04_splash_jgt.png[]
+image::images/04_splash_hm.png[scaledwidth=50%, width=50%, align="center"]
 
-And gvSIG should present a new menu entry named **JGTools**:
+And gvSIG should present a new menu entry named **HMachine**:
 
 .The JGTools menu.
-image::images/05_jgt_menu.png[]
+image::images/05_hm_menu.png[]
 
 anchor:spatialtoolbox[]
 
@@ -67,6 +69,31 @@ The spatial toolbox is a simple user interface to access all the modules contain
 image::images/toolbox.png[]
 
 It is beyond this documentation to explain the toolbox. Have a look at this https://www.slideshare.net/moovida/new-tools-for-lidar-forestry-river-management-and-hydrogeomorphology-in-gvsig[presentation about the LiDAR and forestry related modules]. They also introduce the spatial toolbox.
+
+
+anchor:mapcalc[]
+
+== The Raster Mapcalculator
+
+The mapcalc is a tool that can be use to perform map algebra on raster maps.
+
+Let's assume you want to know which part of an elevation model between 1000 and 1300 meters looks towards south. 
+
+Once you calculated the aspect map with the <<spatialtoolbox,Spatial Toolbox>>, you can use a mapalgebra formula like this:
+
+[source,]
+----
+if (dtm_all>1000 && dtm_all<1300 && aspect >160 && aspect <200 ) {
+    result = dtm_all;
+} else {
+    result = -9999.0;
+}
+----
+
+The resulting map looks like:
+
+image::images/mapcalc.png[]
+
 
 anchor:epanet[]
 
@@ -90,7 +117,7 @@ image::images/geopaparazzi_01.png[]
 
 Once you select the database file, some information about the database will appear, as well as the layers it will create on loading:
 
-image::images/geopaparazzi_02.png[]
+image::images/geopaparazzi_02.png[scaledwidth=50%, width=50%, align="center"]
 
 You have the option to import it to temporary layer, but also to create shapefiles from the database.  
 The second option gives more features and is the suggested way to go.  
@@ -105,7 +132,7 @@ image::images/geopaparazzi_04.png[]
 
 So if you select one or more images, they will be opened:
 
-image::images/geopaparazzi_05b.png[]
+image::images/geopaparazzi_05b.png[scaledwidth=40%, width=40%, align="center"]
 
 === Prepare background data for geopaparazzi
 
