@@ -438,6 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_import_a_geopaprazzi_survey">6.1. Import a Geopaprazzi survey</a></li>
 <li><a href="#_prepare_background_data_for_geopaparazzi">6.2. Prepare background data for geopaparazzi</a></li>
+<li><a href="#_the_geopaparazzi_project_browser_and_simple_connection_server">6.3. The Geopaparazzi Project Browser and Simple Connection Server</a></li>
 </ul>
 </li>
 <li><a href="#_tools_utilities">7. Tools &amp; Utilities</a>
@@ -683,6 +684,101 @@ The second option gives more features and is the suggested way to go.</p>
 </div>
 <div class="paragraph">
 <p>One just needs to define the zoomlevels and the database name and output folder and run the tool.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_geopaparazzi_project_browser_and_simple_connection_server">6.3. The Geopaparazzi Project Browser and Simple Connection Server</h3>
+<div class="paragraph">
+<p><strong>Unfortunately this tool didn&#8217;t make it into this release due to some incompatibilities with the current gvSIG Nasa Worldwind plugin version. We are working on it, time permitting.</strong></p>
+</div>
+<div class="paragraph">
+<p>The following describes how it looks like in the HortonMachine standalone version.</p>
+</div>
+<div class="paragraph">
+<p>The main panel openes up like the following:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gpserver_01.png" alt="gpserver 01">
+</div>
+</div>
+<div class="paragraph">
+<p>With the button to the rigth of the top textfield, it is possible to browse to a folder, inside which all the geopaparazzi projects reside. Once set, the refresh button will trigger a project update:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gpserver_02.png" alt="gpserver 02">
+</div>
+</div>
+<div class="paragraph">
+<p>Each project can be expanded to show its content in terms of notes, logs and images.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gpserver_03.png" alt="gpserver 03">
+</div>
+</div>
+<div class="paragraph">
+<p>It is also possible to rigthclick and load the project in the 3D map view:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gpserver_04.png" alt="gpserver 04">
+</div>
+</div>
+<div class="paragraph">
+<p>The logs are charted as a profile in the chart view and images can be opened or saved to disk directly:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gpserver_05.png" alt="gpserver 05">
+</div>
+</div>
+<div class="paragraph">
+<p>The most right button enables the server mode. Once pushed it askes for a port to use and then starts a server application that is listening to connections from geopaparazzi.</p>
+</div>
+<div class="paragraph">
+<p>In geopaparazzi you need to enter</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Settings -&gt; Cloud projects sync settings -&gt; Server to connect to</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and insert the ip address of your computer and the port used:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gpserver_client_01.png" alt="gpserver client 01">
+</div>
+</div>
+<div class="paragraph">
+<p>Once done, enter the import view and select <strong>CLOUD PROJECT</strong>. By doing so geopaparazzi will connect to the server and download the available projects list;</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gpserver_client_02.png" alt="gpserver client 02">
+</div>
+</div>
+<div class="paragraph">
+<p>By pushing the download icon the project will be downloaded to the device, ready to be opened:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gpserver_client_03.png" alt="gpserver client 03">
+</div>
+</div>
+<div class="paragraph">
+<p>It is also possible to upload the current project to the server. Enter the EXPORT view and again select <strong>CLOUD PROJECT</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gpserver_client_04.png" alt="gpserver client 04">
+</div>
+</div>
+<div class="paragraph">
+<p>By doing so geopaparazzi will upload the current project database. Refreshing the projects viewer will make it appear in the list.</p>
 </div>
 <div class="paragraph">
 <p><a id="toolsutilities"></a></p>
@@ -947,7 +1043,7 @@ One good example is the <a href="https://en.wikipedia.org/wiki/Aspect_%28geograp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-13 09:05:48 CEST
+Last updated 2017-10-13 12:43:54 CEST
 </div>
 </div>
 </body>

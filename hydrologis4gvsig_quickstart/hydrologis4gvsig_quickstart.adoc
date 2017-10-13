@@ -145,6 +145,60 @@ image::images/geopaparazzi_06.png[]
 
 One just needs to define the zoomlevels and the database name and output folder and run the tool.
 
+=== The Geopaparazzi Project Browser and Simple Connection Server
+
+**Unfortunately this tool didn't make it into this release due to some incompatibilities with the current gvSIG Nasa Worldwind plugin version. We are working on it, time permitting.**
+
+The following describes how it looks like in the HortonMachine standalone version.
+
+The main panel openes up like the following:
+
+image::images/gpserver_01.png[]
+
+With the button to the rigth of the top textfield, it is possible to browse to a folder, inside which all the geopaparazzi projects reside. Once set, the refresh button will trigger a project update:
+
+image::images/gpserver_02.png[]
+
+Each project can be expanded to show its content in terms of notes, logs and images. 
+
+image::images/gpserver_03.png[]
+
+It is also possible to rigthclick and load the project in the 3D map view:
+
+image::images/gpserver_04.png[]
+
+The logs are charted as a profile in the chart view and images can be opened or saved to disk directly:
+
+image::images/gpserver_05.png[]
+
+The most right button enables the server mode. Once pushed it askes for a port to use and then starts a server application that is listening to connections from geopaparazzi.
+
+In geopaparazzi you need to enter 
+
+```
+Settings -> Cloud projects sync settings -> Server to connect to
+```
+
+and insert the ip address of your computer and the port used:
+
+image::images/gpserver_client_01.png[]
+
+Once done, enter the import view and select **CLOUD PROJECT**. By doing so geopaparazzi will connect to the server and download the available projects list;
+
+image::images/gpserver_client_02.png[]
+
+By pushing the download icon the project will be downloaded to the device, ready to be opened:
+
+image::images/gpserver_client_03.png[]
+
+It is also possible to upload the current project to the server. Enter the EXPORT view and again select **CLOUD PROJECT**. 
+
+image::images/gpserver_client_04.png[]
+
+By doing so geopaparazzi will upload the current project database. Refreshing the projects viewer will make it appear in the list.
+
+
+
 anchor:toolsutilities[]
 
 == Tools & Utilities
