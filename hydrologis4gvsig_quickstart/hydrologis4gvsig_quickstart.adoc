@@ -11,10 +11,13 @@ for Version 0.2.0 and HortonMachine 0.8.2
 :toc: left
 :numbered:
 :icons: font
-
-
-image::images/04_splash_hm.png[]
-
+ifdef::backend-pdf[]
+:title-logo-image: image::images/04_splash_hm.png[pdfwidth=4.25in,align=center]
+:source-highlighter: rouge
+//:rouge-style: github
+//:source-highlighter: pygments
+//:pygments-style: tango
+endif::[]
 
 
 This manual covers version {version} of the plugins, that are aligned with gvSIG {gvsig_version} and HortonMachine {hm_version}.
@@ -128,7 +131,7 @@ image::images/geopaparazzi_03.png[]
 
 The media layer can now be queried with an own tool:
 
-image::images/geopaparazzi_04.png[]
+image::images/geopaparazzi_04.png[align="center"]
 
 So if you select one or more images, they will be opened:
 
@@ -148,7 +151,7 @@ anchor:toolsutilities[]
 
 The tools added by the plugins are the following:
 
-image::images/tools.png[]
+image::images/tools.png[align="center"]
 
 === The Position Info Tool
 
@@ -202,7 +205,7 @@ image::images/raster_styler_02.png[]
 
 One can access the raster styler also from the context menu obtained by right-clicking on a raster layer:
 
-image::images/raster_styler_01.png[]
+image::images/raster_styler_01.png[align="center"]
 
 Just select the right colortable, set a bit of transparency and define the novalue (if necessary). Also set the number format pattern in the legend and push apply. That is it:
 
@@ -220,41 +223,41 @@ image::images/raster_styler_05.png[]
 
 We often need to analize small portions of large rasters a piece at the time. When you look at the region, due to the size of the raster, everything looks the same:
 
-image::images/graphics_view_000.png[]
+image::images/graphics_view_000.png[scaledwidth=70%, width=70%, align="center"]
 
 This is due to the fact that the colortable is calculated on the whole raster, while it would be convenient to have a local colortable.
 
-image::images/graphics_view_00.png[]
+image::images/graphics_view_00.png[scaledwidth=70%, width=70%, align="center"]
 
 This is what the **Raster Graphics View** it here for. Once opened from the context menu of the selected raster, it openes a small window:
 
-image::images/graphics_view_01.png[]
+image::images/graphics_view_01.png[scaledwidth=70%, width=70%, align="center"]
 
 Once selecting the options **show cells** and **no text**, it is possible to view the local colortable:
 
-image::images/graphics_view_02.png[]
+image::images/graphics_view_02.png[scaledwidth=70%, width=70%, align="center"]
 
 It is also possible to view the raster values:
 
-image::images/graphics_view_04.png[]
+image::images/graphics_view_04.png[scaledwidth=70%, width=70%, align="center"]
 
 or the cols/rows of the loaded raster file:
 
-image::images/graphics_view_05.png[]
+image::images/graphics_view_05.png[scaledwidth=70%, width=70%, align="center"]
 
 or both:
 
-image::images/graphics_view_06.png[]
+image::images/graphics_view_06.png[scaledwidth=70%, width=70%, align="center"]
 
 It is also possible to have a look at the steepest direction of each cell. This makes sense if the raster is an elevation model, in which case it will show a very simplified version of the flowdirections. But it is usefull to give an idea:
 
-image::images/graphics_view_03.png[]
+image::images/graphics_view_03.png[scaledwidth=70%, width=70%, align="center"]
 
 In this case pits are shown as red fat dots.
 
 The effect is better understood if we also overlay the map of aspect to have an idea of the morphology:
 
-image::images/graphics_view_07.png[]
+image::images/graphics_view_07.png[scaledwidth=70%, width=70%, align="center"]
 
 === Raster Values Copy
 
@@ -262,19 +265,19 @@ Have you ever needed to analyze small portions of large rasters? And maybe extra
 
 This is the tool you are looking for. It can be accessed from the context menu:
 
-image::images/raster_values_copy_01.png[]
+image::images/raster_values_copy_01.png[scaledwidth=70%, width=70%, align="center"]
 
 Once triggered, it copies the visible portion of the map into the system clipboard as an ascii raster map, ready to be copied into a file and be used:
 
-image::images/raster_values_copy_03.png[]
+image::images/raster_values_copy_03.png[scaledwidth=70%, width=70%, align="center"]
 
 == Final remarks
 
-These tools are brought to you by http://www.hydrologis.com[HydroloGIS S.r.l.] and have been developed throughout the years by various research teams, the most important being the teams of:
+These tools are brought to you by http://www.hydrologis.com[HydroloGIS S.r.l.] and most of their processing heart has been developed throughout the years by various research teams, the most important being the teams of:
 
 * Professor http://abouthydrology.blogspot.it/[Rigon Riccardo] of the University of Trento, Faculty of Engineering
 * Professor https://www.unibz.it/it/faculties/sciencetechnology/academic-staff/person/21255-giustino-tonon[Giustino Tonon] of the Free University of Bolzano, Faculty of Science and Technology
 
-The source code is available at the project's https://github.com/TheHortonMachine/hydrologis4gvsig[github page]
+The source code of the gvSIG plugins is available at the project's https://github.com/TheHortonMachine/hydrologis4gvsig[github page]
 
 If you have questions, depending on the type, please refer to the gvSIG https://listserv.gva.es/cgi-bin/mailman/listinfo/gvsig_internacional[users] or http://joinup.ec.europa.eu/mailman/listinfo/gvsig-desktop-devel[developers] list.
