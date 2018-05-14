@@ -147,9 +147,8 @@ One just needs to define the zoomlevels and the database name and output folder 
 
 === The Geopaparazzi Project Browser and Simple Connection Server
 
-WARNING: Unfortunately this tool didn't make it into this release due to some incompatibilities with the current gvSIG Nasa Worldwind plugin version. We are working on it, time permitting.
-
-The following describes how it looks like in the HortonMachine standalone version.
+The project browser/server gives the possibility to have a look at your projects from within the GIS and even to connect with the
+machine to synchronize projects with it.
 
 The main panel openes up like the following:
 
